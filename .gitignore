@@ -1,0 +1,10 @@
+.idea
+.vscode
+
+lib
+logs
+runs
+pkgs
+build
+release
+cmake-build-debug
