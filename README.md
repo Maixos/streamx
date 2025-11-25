@@ -149,7 +149,5 @@ Part of the **AI Open Series** — A suite of open AI application frameworks.
 ---
 
 # 💬 Contact | 联系方式
-**GitHub**: [https://github.com/mincox/ai-streamx](https://github.com/mincox/ai-streamx)  
+**GitHub**: https://github.com/mincox  
 **Email**: mincox168@outlook.com
-
-
