@@ -1,10 +1,10 @@
-# AI-StreamX
+# StreamX
 Hardware-accelerated zero-copy multi-stream video processing framework for AI  
 _面向 AI 的硬件加速零拷贝多路视频流处理框架_   
 
 # 🧩 Overview | 概述
-AI-StreamX is a high-performance video streaming framework designed for AI-centric workloads. It provides a zero-copy processing pipeline covering decoding → inference → encoding → streaming, supports parallel multi-stream management, and offers both synchronous and asynchronous execution modes. With unified scheduling and resource management, AI-StreamX enables efficient multi-task video pipelines with low latency and high throughput.  
-_AI-StreamX 是一个面向 AI 场景的高性能视频流处理框架，提供从 解码 → 推理 → 编码 → 推流 的全链路零拷贝数据通道，支持多路视频流并行管理，并兼容同步 / 异步执行模式，同时提供 C++ 与 Python 接口。通过统一的调度与资源管理机制，AI-StreamX 能够构建并运行多任务视频处理流水线，实现低延迟、高吞吐的视频分析能力。_  
+StreamX is a high-performance video streaming framework designed for AI-centric workloads. It provides a zero-copy processing pipeline covering decoding → inference → encoding → streaming, supports parallel multi-stream management, and offers both synchronous and asynchronous execution modes. With unified scheduling and resource management, StreamX enables efficient multi-task video pipelines with low latency and high throughput.  
+_StreamX 是一个面向 AI 场景的高性能视频流处理框架，提供从 解码 → 推理 → 编码 → 推流 的全链路零拷贝数据通道，支持多路视频流并行管理，并兼容同步 / 异步执行模式，同时提供 C++ 与 Python 接口。通过统一的调度与资源管理机制，AI-StreamX 能够构建并运行多任务视频处理流水线，实现低延迟、高吞吐的视频分析能力。_  
 
 # ⚙️ Core Features | 核心特性
 ## Hardware Acceleration | 硬件加速
@@ -62,20 +62,20 @@ Below are performance results measured on real hardware platforms to showcase mu
 
 
 # 🧰 Quick Start | 快速开始
-Before using AI-StreamX, ensure that the proper firmware, SDK, and hardware acceleration modules are enabled for your platform.  
-_在开始使用 __**AI-StreamX**__ 之前，请根据所选硬件平台安装对应的系统与开发套件，并确保相关硬件加速模块正常启用。_
+Before using StreamX, ensure that the proper firmware, SDK, and hardware acceleration modules are enabled for your platform.  
+_在开始使用 __**StreamX**__ 之前，请根据所选硬件平台安装对应的系统与开发套件，并确保相关硬件加速模块正常启用。_
 
 ## Supported Hardware & Required System | 硬件平台与系统要求
 | **Hardware** | **System / SDK** | **Notes** |
 | :---: | :---: | :---: |
-| RK3588-PC | [ROC-RK3588-PC_Ubuntu20.04-Gnome-r30028_v1.1.1b_230914.7z](https://drive.google.com/drive/folders/1Pws2RrNfiCv67wKgDphBGqZ8lx-iidyR) | 需启用 **RKMPP / RGA** 硬件加速 |
-| NVIDIA Jetson | JetPack **6.1.1** | 必须启用 **NVENC / NVDEC** |
+| RK3588-PC | [ROC-RK3588-PC_Ubuntu20.04-Gnome-r30028_v1.1.1b_230914.7z](https://drive.google.com/drive/folders/1Pws2RrNfiCv67wKgDphBGqZ8lx-iidyR) | 需启用 **RKMPP / RGA** |
+| NVIDIA Jetson | JetPack **6.1.1** | 需启用 **NVENC / NVDEC** |
 | x86 + CUDA GPU | CUDA Toolkit / FFmpeg | 开发中 |
 
 
 ## Installation Notes | 安装说明
-AI-StreamX dependencies are precompiled in **mirox**, and can be directly installed when using supported firmware. Other firmware versions may not be verified and could require manual compilation.  
-_AI-StreamX 的大部分依赖已在 __**mirox**__ 中预编译完成。**使用上述指定固件版本时，可直接安装 __**mirox**__，无需手动编译（其他固件版本未验证）。**_  
+StreamX dependencies are precompiled in **mirox**, and can be directly installed when using supported firmware. Other firmware versions may not be verified and could require manual compilation.  
+_StreamX 的大部分依赖已在 __**mirox**__ 中预编译完成。**使用上述指定固件版本时，可直接安装 __**mirox**__，无需手动编译（其他固件版本未验证）。**_  
 
 **Includes:**  
 + **FFmpeg** — video parsing + codec framework
@@ -101,7 +101,7 @@ cd mirox && sudo ./setup.sh
 ## Example Run ｜ RK3588 示例
 ```shell
 
-cd /path/to/ai-streamx
+cd /path/to/streamx
 
 bash build.sh
 
