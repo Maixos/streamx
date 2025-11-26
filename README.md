@@ -6,6 +6,13 @@ _面向 AI 的硬件加速零拷贝多路视频流处理框架_
 StreamX is a high-performance video streaming framework designed for AI-centric workloads. It provides a zero-copy processing pipeline covering decoding → inference → encoding → streaming, supports parallel multi-stream management, and offers both synchronous and asynchronous execution modes. With unified scheduling and resource management, StreamX enables efficient multi-task video pipelines with low latency and high throughput.  
 _StreamX 是一个面向 AI 场景的高性能视频流处理框架，提供从 解码 → 推理 → 编码 → 推流 的全链路零拷贝数据通道，支持多路视频流并行管理，并兼容同步 / 异步执行模式，同时提供 C++ 与 Python 接口。通过统一的调度与资源管理机制，AI-StreamX 能够构建并运行多任务视频处理流水线，实现低延迟、高吞吐的视频分析能力。_  
 
+# 🎬 Demo | 演示
+
+## 相关链接
++ Bilibili：
+
+<div align="center"> <img src="asset/images/demo.gif" width="70%" /> </div>  
+
 # ⚙️ Core Features | 核心特性
 ## Hardware Acceleration | 硬件加速
 + Supports NVIDIA NVDEC/NVENC, Rockchip RKMPP/RGA, and other hardware backends（_支持多种主流硬件加速后端_）  
@@ -122,4 +129,5 @@ Part of the **AI Open Series** — A suite of open AI application frameworks.
 
 # 💬 Contact | 联系方式
 **GitHub**: https://github.com/mincox  
-**Email**: mincox168@outlook.com
+**Bilibili**: https://space.bilibili.com/382756182?spm_id_from=333.1007.0.0  
+**Email**: mincox168@outlook.com  
