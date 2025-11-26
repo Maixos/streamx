@@ -135,6 +135,5 @@ Copyright © 2025
 Part of the **AI Open Series** — A suite of open AI application frameworks.  
 
 # 💬 Contact | 联系方式
-**GitHub**: https://github.com/mincox  
 **Bilibili**: https://space.bilibili.com/382756182?spm_id_from=333.1007.0.0  
 **Email**: mincox168@outlook.com  
