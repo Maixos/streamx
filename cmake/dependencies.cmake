@@ -13,12 +13,12 @@ else ()
 endif ()
 
 if (NOT DEFINED CMAKE_PREFIX_PATH)
-    list(APPEND CMAKE_PREFIX_PATH /opt/maixos-dev/staging${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/cmake)
+    list(APPEND CMAKE_PREFIX_PATH ${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/cmake)
 endif ()
 
 set(ENV{PKG_CONFIG_SYSROOT_DIR} /opt/maixos-dev/staging)
 set(ENV{PKG_CONFIG_PATH}
-        "/opt/maixos-dev/staging${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/pkgconfig:$ENV{PKG_CONFIG_PATH}"
+        "${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/pkgconfig:$ENV{PKG_CONFIG_PATH}"
 )
 
 # ------------------------------------------------------------
