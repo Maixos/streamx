@@ -65,7 +65,7 @@ void on_decoded_frame(const std::shared_ptr<vcodecx::FrameX>& frame) {
 // Callback Mode Pipeline
 // -----------------------------------------------------------
 void run_callback_mode() {
-    auto manager = vcodecx::Manager::create();
+    auto manager = vcodecx::Manager::instance();
 
     vcodecx::StreamInfo stream_info{"stream1", g_source_uri};
     vcodecx::DecodeConfig decode_cfg{
@@ -110,13 +110,13 @@ void run_callback_mode() {
 // Read Mode Pipeline
 // -----------------------------------------------------------
 void run_read_mode() {
-    auto manager = vcodecx::Manager::create();
+    auto manager = vcodecx::Manager::instance();
 
     vcodecx::StreamInfo stream_info{"stream1", g_source_uri};
     vcodecx::DecodeConfig decode_cfg{
         1280, 720,
         vcodecx::ImageFormat::BGR24,
-        vcodecx::WorkerMode::QueueRead,
+        vcodecx::WorkerMode::Polling,
         30
     };
 
@@ -128,7 +128,7 @@ void run_read_mode() {
 
     vcodecx::EncodeConfig encode_cfg{
         1280, 720,
-        vcodecx::WorkerMode::QueueRead,
+        vcodecx::WorkerMode::Polling,
         30, 5
     };
 
@@ -176,7 +176,7 @@ void run_read_mode() {
 // Main Entry
 // -----------------------------------------------------------
 int main(int argc, char* argv[]) {
-    std::cout << "AI-StreamX Demo Starting..." << std::endl;
+    std::cout << "StreamX Demo Starting..." << std::endl;
 
     logx::Logger::init("vcodec", "debug", false);
     register_signal_handlers();

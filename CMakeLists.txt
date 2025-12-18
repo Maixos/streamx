@@ -1,31 +1,54 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(streamx)
+project(streamx-project VERSION 1.0.0 LANGUAGES CXX)
 
+# ============================================================
+# Global build configuration
+# ============================================================
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_BUILD_RPATH "$ORIGIN/lib")
 set(CMAKE_INSTALL_RPATH "$ORIGIN/lib")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
-# ################################### EXECUTE ###################################
-include(${PROJECT_SOURCE_DIR}/cmake/dependence.cmake)
+# Default build type
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Build type: Debug, Release, RelWithDebInfo" FORCE)
+endif ()
 
-include_directories(${X3RDPARTY_INCLUDE_DIRS})
+include(GNUInstallDirs)
 
-file(GLOB_RECURSE SRCS src/*.cpp)
+# ============================================================
+# Third-party / dependency management
+# ============================================================
+include(${PROJECT_SOURCE_DIR}/cmake/dependencies.cmake)
 
-add_executable(${PROJECT_NAME} ${SRCS})
+# ============================================================
+# Output directories
+# ============================================================
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib/${MAIXOS_ARCH})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib/${MAIXOS_ARCH})
 
-target_link_libraries(${PROJECT_NAME} pthread ${X3RDPARTY_LINK_LIBS})
+# ============================================================
+# Install layout policy
+# ============================================================
+if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "${MAIXOS_ROOT}" CACHE PATH "Install prefix" FORCE)
+endif ()
 
-## ################################### RELEASE ###################################
-set(RELEASE_DIR ${PROJECT_SOURCE_DIR}/release)
-install(TARGETS ${PROJECT_NAME} DESTINATION ${RELEASE_DIR})
-install(FILES ${PROJECT_SOURCE_DIR}/setup.sh DESTINATION ${RELEASE_DIR})
-install(FILES ${X3RDPARTY_INSTALL_FILES} DESTINATION ${RELEASE_DIR}/lib)
-#install(FILES ${PROJECT_SOURCE_DIR}/config.yaml DESTINATION ${RELEASE_DIR} RENAME .config.yaml)
-#install(DIRECTORY ${PROJECT_SOURCE_DIR}/asset DESTINATION ${RELEASE_DIR})
+if (CMAKE_INSTALL_LIBDIR STREQUAL "lib")
+    set(CMAKE_INSTALL_LIBDIR "lib/${MAIXOS_ARCH}" CACHE PATH "Library install directory" FORCE)
+endif ()
+
+# ============================================================
+# Tests
+# ============================================================
+option(BUILD_EXAMPLES "Build test applications" ON)
+
+if (BUILD_EXAMPLES)
+    add_executable(streamx_test src/main.cpp)
+
+    target_link_libraries(streamx_test toolkitx vcodecx::rkffmpeg rtspx)
+endif ()
