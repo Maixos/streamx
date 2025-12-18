@@ -48,7 +48,7 @@ endif ()
 option(BUILD_EXAMPLES "Build test applications" ON)
 
 if (BUILD_EXAMPLES)
-    add_executable(streamx_test src/main.cpp)
-
-    target_link_libraries(streamx_test toolkitx vcodecx::rkffmpeg rtspx)
+    add_subdirectory(src/rk3588)
+    # TODO
+    # add_subdirectory(src/jetson)
 endif ()
