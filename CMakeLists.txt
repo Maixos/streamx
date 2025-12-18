@@ -45,10 +45,8 @@ endif ()
 # ============================================================
 # Tests
 # ============================================================
-option(BUILD_EXAMPLES "Build test applications" ON)
-
-if (BUILD_EXAMPLES)
+if (TARGET_PLATFORM STREQUAL "rk3588")
     add_subdirectory(src/rk3588)
-    # TODO
-    # add_subdirectory(src/jetson)
+elseif (TARGET_PLATFORM STREQUAL "jetson")
+    add_subdirectory(src/jetson)
 endif ()
