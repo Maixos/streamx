@@ -112,14 +112,18 @@ git clone https://github.com/Maixos/mirox.git
 cd mirox && sudo ./setup.sh
 ```
 
-## Example Run ｜ RK3588 示例
+## Example Run ｜ 运行示例
 ```shell
 
 cd /path/to/streamx
 
-bash build.sh
+# rk3588 平台示例
+bash build.sh rk3588
 
-cd release && source setup.sh
+# jetson 平台示例
+bash build.sh jetson
+
+./bin/test_streamx_rk3588 /dev/video1
 
 ./streamx /dev/video1
 ```
