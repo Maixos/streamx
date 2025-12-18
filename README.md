@@ -120,12 +120,7 @@ cd /path/to/streamx
 # rk3588 平台示例
 bash build.sh rk3588
 
-# jetson 平台示例
-bash build.sh jetson
-
 ./bin/test_streamx_rk3588 /dev/video1
-
-./streamx /dev/video1
 ```
 
 # 🧭 Roadmap | 发展规划
