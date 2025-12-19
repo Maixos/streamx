@@ -128,7 +128,7 @@ bash build.sh <platform>
 ```shell
 bash build.sh rk3588
 
-./bin/test_streamx_rk3588 /dev/video1s
+./bin/test_streamx_rk3588 /dev/video1
 ```
 
 # 🧭 Roadmap | 发展规划
