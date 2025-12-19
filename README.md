@@ -75,52 +75,60 @@ Below are performance results measured on real hardware platforms to showcase mu
 | — | — | — | — | — | — | — |
 
 
-# 🧰 Quick Start | 快速开始
-Before using StreamX, ensure that the proper firmware, SDK, and hardware acceleration modules are enabled for your platform.  
-_在开始使用 __**StreamX**__ 之前，请根据所选硬件平台安装对应的系统与开发套件，并确保相关硬件加速模块正常启用。_
+# 🧰 Quick Start ｜快速开始
 
-## Supported Hardware & Required System | 硬件平台与系统要求
-| **Hardware** | **System / SDK** | **Notes** |
-| :---: | :---: | :---: |
-| RK3588-PC | [ROC-RK3588-PC_Ubuntu20.04-Gnome-r30028_v1.1.1b_230914.7z](https://drive.google.com/drive/folders/1Pws2RrNfiCv67wKgDphBGqZ8lx-iidyR) | 需启用 RKMPP / RGA |
-| NVIDIA Jetson | JetPack **6.1.1** | 需启用 NVENC / NVDEC |
-| x86 + CUDA GPU | CUDA Toolkit / FFmpeg | 开发中 |
+Before using **StreamX**, please ensure that your target platform meets the **verified system requirements** below.
 
+> ℹ️ **Ubuntu Version Notice**  
+> StreamX has been **fully verified on Ubuntu 20.04 (focal)**.  
+> Support for other Ubuntu releases is **planned and currently under testing**.
 
-## Installation Notes | 安装说明
-StreamX dependencies are precompiled in **mirox**, and can be directly installed when using supported firmware. Other firmware versions may not be verified and could require manual compilation.  
-_StreamX 的大部分依赖已在 __**mirox**__ 中预编译完成。**使用上述指定固件版本时，可直接安装 __**mirox**__，无需手动编译（其他固件版本未验证）。**_  
+_在使用 **StreamX** 之前，请确认目标平台满足下述 **已验证系统要求**。  
+目前 StreamX 已在 **Ubuntu 20.04（focal）** 上完成完整验证，**其他版本正在测试与适配中**。_
 
-**Includes:**  
-+ **FFmpeg** — video parsing + codec framework
-+ **OpenCV (x86 / Jetson)** — image processing
-+ **RKMPP / RGA (RK3588)** — hardware acceleration
+## Environment Requirements ｜ 平台与环境要求
+| **Platform** | **System / SDK** | **Additional Requirements** | **Status** |
+| :---: | :---: | :---: | :---: |
+| RK3588-PC | [ROC-RK3588-PC_Ubuntu20.04-Gnome-r30028_v1.1.1b_230914.7z](https://drive.google.com/drive/folders/1Pws2RrNfiCv67wKgDphBGqZ8lx-iidyR) | OpenCV ≥ 4.2.0 | ✅ Verified |
+| NVIDIA Jetson | JetPack **6.1.1** | OpenCV ≥ 4.2.0 | ✅ Verified |
+| x86 + CUDA GPU | CUDA Toolkit / FFmpeg | OpenCV ≥ 4.2.0 | 🚧 In Development |
 
-### Install Basic Dependencies (Ubuntu) | Ubuntu 基础依赖
+## Installation & Setup | 安装与配置
+
+### Basic Dependencies (Ubuntu) | Ubuntu 基础依赖
 ```shell
 sudo apt update
 
-sudo apt install build-essential 
-
-sudo apt install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt install build-essential cmake git libgtk2.0-dev pkg-config
 ```
 
-### Get Pre-compiled Dependencies | 获取 **mirox** 预编译依赖
-```shell
-git clone https://github.com/Maixos/mirox.git
+### Get Pre-compiled Dependencies ｜获取 **mirox** 预编译依赖
 
-cd mirox && sudo ./setup.sh
+> ⚠️ **Pre-compiled Package Notice**  
+> The current pre-compiled packages are built on **Ubuntu 20.04 (focal)**.  
+> Compatibility with other Ubuntu releases is **under evaluation**.
+
+```shell
+sudo add-apt-repository ppa:maixos/mirox
+
+sudo apt update
+
+sudo apt install libvcodecx-dev librtspx-dev
 ```
 
-## Example Run ｜ 运行示例
+### Build & Run ｜ 编译与运行
 ```shell
-
 cd /path/to/streamx
 
-# rk3588 平台示例
+# Build for target platform
+bash build.sh <platform>
+```
+
+### Example: RK3588 ｜ RK3588 平台示例
+```shell
 bash build.sh rk3588
 
-./bin/test_streamx_rk3588 /dev/video1
+./bin/test_streamx_rk3588 /dev/video1s
 ```
 
 # 🧭 Roadmap | 发展规划
@@ -135,4 +143,4 @@ Part of the **AI Open Series** — A suite of open AI application frameworks.
 
 # 💬 Contact | 联系方式
 **Bilibili**: https://space.bilibili.com/382756182?spm_id_from=333.1007.0.0  
-**Email**: mincox168@outlook.com  
+**Email**: maixos@outlook.com  
