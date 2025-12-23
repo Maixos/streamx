@@ -113,7 +113,7 @@ sudo add-apt-repository ppa:maixos/mirox -y
 
 sudo apt update
 
-sudo apt install libvcodecx-dev librtspx-dev
+sudo apt install libtoolkitx-dev libvcodecx-dev librtspx-dev
 ```
 
 ### Build & Run ｜ 编译与运行
