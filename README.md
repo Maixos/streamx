@@ -116,6 +116,21 @@ sudo apt update
 sudo apt install libtoolkitx-dev libvcodecx-dev librtspx-dev
 ```
 
+### YAML Configuration | YAML 配置说明
+Modify the streams section to add video streams as needed. Multiple video streams are supported.  
+_请修改其中的 streams 配置项按需添加视频流，支持多路视频流同时接入。_
+
+```yaml
+streams:
+  - id: cam00001
+    uri: rtsp://192.168.1.108:8554/cam00001
+
+  - id: cam00002
+    uri: rtsp://192.168.1.109:8554/cam00002
+
+  # ...
+```
+
 ### Build & Run ｜ 编译与运行
 ```shell
 cd /path/to/streamx
@@ -128,7 +143,7 @@ bash build.sh <platform>
 ```shell
 bash build.sh rk3588
 
-./bin/test_streamx_rk3588 /dev/video1
+./bin/test_streamx_rk3588
 ```
 
 # 🧭 Roadmap | 发展规划
