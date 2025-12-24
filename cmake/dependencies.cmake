@@ -12,9 +12,7 @@ else ()
     message(FATAL_ERROR "Unsupported Maixos architecture: ${CMAKE_SYSTEM_PROCESSOR}")
 endif ()
 
-if (NOT DEFINED CMAKE_PREFIX_PATH)
-    list(APPEND CMAKE_PREFIX_PATH ${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/cmake)
-endif ()
+list(APPEND CMAKE_PREFIX_PATH ${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/cmake)
 
 set(ENV{PKG_CONFIG_PATH}
         "${MAIXOS_ROOT}/lib/${MAIXOS_ARCH}/pkgconfig:$ENV{PKG_CONFIG_PATH}"
