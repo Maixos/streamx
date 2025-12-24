@@ -24,6 +24,7 @@ find_package(OpenCV REQUIRED)
 find_package(rtspx REQUIRED)
 find_package(rkffmpeg REQUIRED)
 find_package(toolkitx REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 pkg_check_modules(FFMPEG REQUIRED IMPORTED_TARGET
         libavcodec libavfilter libavformat libavutil libswscale libswresample libavdevice

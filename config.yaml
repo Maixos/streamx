@@ -1,0 +1,18 @@
+project:
+  mode: release
+  name: streamx
+  version: 1.0.0
+  describe: ""
+
+rtsp:
+  port: 16888
+  width: 1280
+  height: 720
+  suffix: streamx
+
+streams:
+  - id: cam00001
+    uri: /dev/video1
+
+  # - id: cam00002
+  #   uri: /dev/video2

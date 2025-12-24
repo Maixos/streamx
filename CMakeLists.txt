@@ -34,9 +34,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib/${MAIXOS_ARCH})
 # ============================================================
 # Install layout policy
 # ============================================================
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "${MAIXOS_ROOT}" CACHE PATH "Install prefix" FORCE)
-endif ()
+set(CMAKE_INSTALL_PREFIX "${MAIXOS_ROOT}" CACHE PATH "Install prefix" FORCE)
 
 if (CMAKE_INSTALL_LIBDIR STREQUAL "lib")
     set(CMAKE_INSTALL_LIBDIR "lib/${MAIXOS_ARCH}" CACHE PATH "Library install directory" FORCE)
