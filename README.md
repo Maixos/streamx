@@ -109,7 +109,7 @@ sudo apt install build-essential cmake git libgtk2.0-dev pkg-config
 > Compatibility with other Ubuntu releases is **under evaluation**.
 
 ```shell
-sudo add-apt-repository ppa:maixos/mirox -y
+sudo add-apt-repository ppa:maixos/system -y
 
 sudo apt update
 
