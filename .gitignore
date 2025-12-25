@@ -1,6 +1,7 @@
 .idea
 .vscode
 
+bin
 lib
 logs
 runs
