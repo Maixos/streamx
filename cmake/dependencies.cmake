@@ -49,7 +49,3 @@ find_package(rkffmpeg REQUIRED)
 find_package(toolkitx REQUIRED)
 
 # Find packages via pkg-config
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(FFMPEG REQUIRED IMPORTED_TARGET
-        libavcodec libavfilter libavformat libavutil libswscale libswresample libavdevice
-)
