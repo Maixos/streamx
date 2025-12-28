@@ -41,10 +41,15 @@ if (CMAKE_INSTALL_LIBDIR STREQUAL "lib")
 endif ()
 
 # ============================================================
+# Build library
+# ============================================================
+add_subdirectory(src)
+
+# ============================================================
 # Tests
 # ============================================================
 if (TARGET_PLATFORM STREQUAL "rk3588")
-    add_subdirectory(src/rk3588)
+    add_subdirectory(tests/rk3588)
 elseif (TARGET_PLATFORM STREQUAL "jetson")
-    add_subdirectory(src/jetson)
+    add_subdirectory(tests/jetson)
 endif ()

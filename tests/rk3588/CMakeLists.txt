@@ -1,7 +1,7 @@
 # ------------------------------------------------------------
 # name
 # ------------------------------------------------------------
-set(NAME test_streamx_rk3588)
+set(NAME test_on_rk3588)
 
 # ------------------------------------------------------------
 # sources
@@ -13,4 +13,4 @@ file(GLOB TEST_SRCS *.cpp)
 # ------------------------------------------------------------
 add_executable(${NAME} ${TEST_SRCS})
 
-target_link_libraries(${NAME} PRIVATE yaml-cpp maixos::toolkitx maixos::vcodecx::rkffmpeg maixos::rtspx)
+target_link_libraries(${NAME} PRIVATE common yaml-cpp maixos::vcodecx::rkffmpeg)

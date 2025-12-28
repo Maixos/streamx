@@ -139,11 +139,11 @@ cd /path/to/streamx
 bash build.sh <platform>
 ```
 
-### Example: RK3588 ｜ RK3588 平台示例
+### Example ｜ 示例
 ```shell
 bash build.sh rk3588
 
-./bin/test_streamx_rk3588
+./bin/test_on_rk3588
 ```
 
 # 🧭 Roadmap | 发展规划
