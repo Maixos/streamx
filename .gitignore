@@ -1,11 +1,15 @@
 .idea
 .vscode
 
+__pycache__
+
 bin
 lib
 logs
 runs
 pkgs
 build
+install
 release
+results
 cmake-build-debug
