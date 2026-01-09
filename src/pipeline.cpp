@@ -93,9 +93,9 @@ namespace streamx {
         }
     }
 
-    void Pipeline::on_decoded(const std::shared_ptr<vcodecx::FrameX> &fremex) const {
-        if (!fremex) return;
-        encoder_->write(fremex, 3);
+    void Pipeline::on_decoded(const std::shared_ptr<vcodecx::FrameX> &framex) const {
+        if (!framex) return;
+        encoder_->write(framex, 3);
     }
 
     void Pipeline::on_encoded(const std::shared_ptr<vcodecx::EncodedX> &encodedx) const {
