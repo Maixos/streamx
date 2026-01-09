@@ -22,7 +22,7 @@ namespace streamx {
     private:
         void process() const;
 
-        void on_decoded(const std::shared_ptr<vcodecx::FrameX> &fremex) const;
+        void on_decoded(const std::shared_ptr<vcodecx::FrameX> &framex) const;
 
         void on_encoded(const std::shared_ptr<vcodecx::EncodedX> &encodedx) const;
 
